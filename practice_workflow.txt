@@ -1,0 +1,25 @@
+1. create the environment for mac (python3 -m venv venv)
+2. activate environment by source venv/bin/activate
+3. pip install  django
+4. sent up the project structure by using the command django-admin startproject <project_name> .
+
+
+Let's Explore the files in the project structure
+
+5. manage.py -- It is remote control files
+6. setting.py -- It contains the information about all the dependencies
+7. urls.py -- Tells the supporting urls for the basckend
+
+8. command to create the application in the file is : python3 manage.py startapp <application_name>
+
+Let's Explore the files in the application we created i.e, Invoice
+
+9. views.py -- It's like the menu of the website ...home page
+10. models.py -- It describes the shape or info , by this the database create tables with this info.
+11. admins.py -- Tells who is the organizer
+12. migration -- To update the model.py 
+
+
+To say to the djago environment for this created application --
+-- we add the name of the application in the settings.py file
+
