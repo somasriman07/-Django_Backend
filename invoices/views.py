@@ -4,10 +4,22 @@ from .models import Invoice
 from .forms import InvoiceForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def show_invoices(request):
-    search = request.GET.get('search','')
-    return HttpResponse("Your invoice page")
+    
+    data = {
+        'all_invoices':[
+            {'number':1,'customer_name':'Rahul','amoint':100},
+            {'number':2,'customer_name':'Ramesh','amoint':200},
+            {'number':3,'customer_name':'Suresh','amoint':300},
+            {'number':4,'customer_name':'Mahesh','amoint':400},
+            {'number':5,'customer_name':'Naresh','amoint':500},
+        ]
+    }
+    
+
+    return render(request, 'invoices/cust_name.html', data)
 
 
 
@@ -46,17 +58,17 @@ class InvoiceCreateView(CreateView):
     model = Invoice
     fields = ['customer_name', 'invoice_number', 'amount', 'is_paid']
     template_name = 'invoices/invoice_form.html'
-    success_url = '/invoices/'
+    success_url = '/invoice/'
 
 
 class InvoiceUpdateView(UpdateView):
     model = Invoice
     fields = ['customer_name', 'invoice_number', 'amount', 'is_paid']
     template_name = 'invoices/invoice_form.html'
-    success_url = '/invoices/'
+    success_url = '/invoice/'
 
 
 class InvoiceDeleteView(DeleteView):
     model = Invoice
     template_name = 'invoices/invoice_confirm_delete.html'
-    success_url = '/invoices/'
+    success_url = '/invoice/'

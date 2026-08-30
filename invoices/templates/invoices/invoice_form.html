@@ -1,0 +1,16 @@
+{% extends "invoices/base.html" %}
+
+{% block title %}{% if object %}Edit{% else %}New{% endif %} Invoice · Billing System{% endblock %}
+
+{% block content %}
+<h1>{% if object %}Edit{% else %}Create New{% endif %} Invoice</h1>
+
+<div class="detail-card">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Save Invoice</button>
+        <a class="btn btn-secondary" href="{% url 'all-invoices' %}">Cancel</a>
+    </form>
+</div>
+{% endblock %}
